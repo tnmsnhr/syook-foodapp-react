@@ -17,10 +17,11 @@
                         margin-right: 3rem;
                     }
 
-                    a {
+                    a, a:visited, a:active {
                         font-size: 1.1rem;
                         font-weight: 500;
                         text-decoration: none;
+                        color: $color-black;
                     }
                 }
 
@@ -29,12 +30,28 @@
         }
 
         .navbar__right {
+            display: flex;
+            align-items: center;
 
+            .avatar {
+                width: 50px;
+                height: 50px;
+                margin-right: 1rem;
+                
+                img {
+                    width: 100%;
+                    border-radius: 100px;
+                }
+            }
+
+            .navbar__username {
+                margin-right: 2rem;
+            }
         }
     }
 }
 
 .active__nav {
     font-weight: bold;
-    color: $color-primary;     
+    color: $color-primary !important;     
 }

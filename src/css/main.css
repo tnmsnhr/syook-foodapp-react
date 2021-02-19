@@ -127,12 +127,14 @@ body {
     text-decoration: none; }
 
 .btn-primary {
-  background-color: #F06C4E; }
+  background-color: #F06C4E;
+  color: #fff; }
   .btn-primary a {
     color: #fff; }
 
 .btn-default {
-  background-color: #FEF0ED; }
+  background-color: #FEF0ED;
+  color: #F06C4E; }
   .btn-default a {
     color: #F06C4E; }
 
@@ -149,6 +151,9 @@ body {
   display: block;
   width: 100%;
   border-radius: 5px; }
+
+.btn--white {
+  color: #fff; }
 
 .form__group {
   margin: 10px 0; }
@@ -170,6 +175,16 @@ body {
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
       font-size: 14px; }
+
+.profile__heading {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .profile__heading .heading-bar {
+    flex: 1;
+    background-color: #e6e6e6;
+    height: 1px;
+    margin-left: 1rem; }
 
 .row {
   max-width: 90vw;
@@ -314,14 +329,27 @@ body {
         list-style-type: none; }
         .navbar__container .navbar__nav .navbar__left .navbar__menu-items .navbar__menu-item:not(:last-child) {
           margin-right: 3rem; }
-        .navbar__container .navbar__nav .navbar__left .navbar__menu-items .navbar__menu-item a {
+        .navbar__container .navbar__nav .navbar__left .navbar__menu-items .navbar__menu-item a, .navbar__container .navbar__nav .navbar__left .navbar__menu-items .navbar__menu-item a:visited, .navbar__container .navbar__nav .navbar__left .navbar__menu-items .navbar__menu-item a:active {
           font-size: 1.1rem;
           font-weight: 500;
-          text-decoration: none; }
+          text-decoration: none;
+          color: #1f1f1f; }
+    .navbar__container .navbar__nav .navbar__right {
+      display: flex;
+      align-items: center; }
+      .navbar__container .navbar__nav .navbar__right .avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem; }
+        .navbar__container .navbar__nav .navbar__right .avatar img {
+          width: 100%;
+          border-radius: 100px; }
+      .navbar__container .navbar__nav .navbar__right .navbar__username {
+        margin-right: 2rem; }
 
 .active__nav {
   font-weight: bold;
-  color: #F06C4E; }
+  color: #F06C4E !important; }
 
 .food-card__container {
   width: 100%;
@@ -379,13 +407,3 @@ body {
     .food-card__container .voting__button--area .vote-btn-active {
       background: #F06C4E;
       color: #fff; }
-
-.profile-page__container .profile__heading {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .profile-page__container .profile__heading .heading-bar {
-    flex: 1;
-    background-color: #e6e6e6;
-    height: 1px;
-    margin-left: 1rem; }

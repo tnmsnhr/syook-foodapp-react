@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import FoodCard from '../FoodCard/FoodCard';
 import {connect} from 'react-redux';
-import {addItem, fetchItems} from '../../store/actions/foodActions';
+import {addItem, fetchItems, fetchVotes} from '../../store/actions/foodActions';
 
 class ProfilePage extends Component{
 
@@ -16,6 +16,8 @@ class ProfilePage extends Component{
         this.setState({
             foodItems:this.props.foodItems
         })
+        
+        this.props.onFetchVotes()
     }
 
 
@@ -64,7 +66,7 @@ class ProfilePage extends Component{
     }
 
     render(){
-        console.log(this.props.currentUser)
+        console.log(this.props.votedData)
         return (
             <div className="profile-page__container margin-top-xl">
                 <div className="row">
@@ -108,7 +110,7 @@ class ProfilePage extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-1-of-1">
                         <div className="profile__heading margin-top-lg">
                             <h2>How your votes are doing?</h2>
@@ -117,10 +119,12 @@ class ProfilePage extends Component{
                     </div>
                 </div>
                 <div className="row">
-                    {/* <div className="col-1-of-3"><FoodCard /></div>
-                    <div className="col-1-of-3"><FoodCard /></div>
-                    <div className="col-1-of-3"><FoodCard /></div> */}
-                </div>
+                    {this.props.foodItems.map(item=>{
+                        if(item.username==this.props.currentUser.username){
+                            return (<div className="col-1-of-3" key={item.id}><FoodCard foodData={item} actionButton='mod'/></div>)
+                        }
+                    })}
+                </div> */}
             </div>
         )
     }
@@ -130,14 +134,16 @@ const mapStateToProps=state=>{
     return {
         loading: state.food.loading,
         foodItems: state.food.foodItems,
-        currentUser: state.user.currentUser
+        currentUser: state.user.currentUser,
+        votedData: state.food.votedData
     }
 }
 
 const mapDispatchToProps=dispatch=>{
     return {
         onAddItem: (foodData)=>dispatch(addItem(foodData)),
-        onFetchItems: ()=>dispatch(fetchItems())
+        onFetchItems: ()=>dispatch(fetchItems()),
+        onFetchVotes: ()=>dispatch(fetchVotes())
     }
 }
 

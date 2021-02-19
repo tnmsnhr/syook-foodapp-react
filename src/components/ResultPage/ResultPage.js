@@ -3,17 +3,23 @@ import FoodCard from '../FoodCard/FoodCard';
 import {connect} from 'react-redux';
 import {fetchItems, fetchVotes} from '../../store/actions/foodActions';
 
-const VotePage = props => {
+const ResultPage = props => {
 
     useEffect(()=>{
         props.onFetchItems()
         props.onFetchVotes()
     },[])
 
-    console.log(props.votedData)
+    const sortedFood=props.allFoodItems.sort((a,b)=>{
+        if(a.points>b.points)
+            return -1
+
+        if(a.points>b.points)
+            return 1
+    })
 
     let rowContents = [];
-        let contents = props.allFoodItems.reduce((acc, item, i) => {
+        let contents = sortedFood.reduce((acc, item, i) => {
             
             rowContents.push(<div className="col-1-of-4" key={item.id}><FoodCard foodData={item} votedData={props.votedData}/></div>);
             if (i % 4 === 3) {
@@ -30,8 +36,8 @@ const VotePage = props => {
             <div className="row">
                 <div className="col-1-of-1">
                     <div className="profile__heading margin-top-lg">
-                    <h2>Vote your favourite Item</h2>
-                    <span className="heading-bar">&nbsp;</span>
+                        <h2>Results of the Poll</h2>
+                        <span className="heading-bar">&nbsp;</span>
                     </div>
                 </div>
             </div>
@@ -54,4 +60,4 @@ const mapDispatchToProps=dispatch=>{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(VotePage)
+export default connect(mapStateToProps, mapDispatchToProps)(ResultPage)

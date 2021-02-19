@@ -69,16 +69,37 @@ const voteSuccess=(voteData)=>{
 export const vote=(id,point)=>{
     return dispatch=>{
         const voteData=new Map(JSON.parse(localStorage.getItem('myVote')))
+        const foodItems=JSON.parse(localStorage.getItem('foodData'))
         if(voteData.size==0){
+
             voteData.set(`${point}`,id)
+
+            foodItems.map((item,index)=>{
+                if(item.id==id){
+                    foodItems[index].points += (40-point*10)
+                    localStorage.setItem('foodData',JSON.stringify([...foodItems]))
+                }
+            })
             localStorage.setItem('myVote',JSON.stringify([...voteData]))
         }else {
             if(voteData.has(point)){
                 voteData.delete(point)
                 localStorage.setItem('myVote',JSON.stringify([...voteData]))
+                foodItems.map((item,index)=>{
+                    if(item.id==id){
+                        foodItems[index].points -= (40-point*10)
+                        localStorage.setItem('foodData',JSON.stringify([...foodItems]))
+                    }
+                })
             }else {
                 voteData.set(`${point}`,id)
                 localStorage.setItem('myVote',JSON.stringify([...voteData]))
+                foodItems.map((item,index)=>{
+                    if(item.id==id){
+                        foodItems[index].points += (40-point*10)
+                        localStorage.setItem('foodData',JSON.stringify([...foodItems]))
+                    }
+                })
             }
         }
 

@@ -8,6 +8,7 @@ import './css/main.css';
 import {login} from './store/actions/userActions';
 import {connect} from 'react-redux';
 import {useEffect} from 'react';
+import ResultPage from './components/ResultPage/ResultPage';
 
 function App(props) {
 
@@ -37,7 +38,9 @@ function App(props) {
   const user=JSON.parse(localStorage.getItem('user'))
 
   useEffect(()=>{
-    props.onLogin(user.username,user.password)
+    if(user){
+      props.onLogin(user.username,user.password)
+    }
   },[])
 
 
@@ -50,6 +53,7 @@ function App(props) {
       <Route path="/home/:id" component={Navbar}/>
       <Route path="/home/vote" component={VotePage}/>
       <Route path="/home/profile" component={ProfilePage}/>
+      <Route path="/home/result" component={ResultPage}/>
     </>
   )
 

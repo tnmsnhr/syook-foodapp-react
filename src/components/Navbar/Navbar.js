@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
 
-const Navbar = () => {
+const Navbar = props => {
     return (
         <nav className="navbar__container">
             <div className="container">
@@ -15,8 +16,22 @@ const Navbar = () => {
                     </section>
 
                     <section className="navbar__right">
-                        <button className="btn btn-primary"><Link to="/">Log in</Link></button>
-                        <button className="btn btn-default"><Link to="/">Sign up</Link></button>
+                        {props.loginSuccess ?<>
+                            <div className="avatar">
+                                <img src='https://hscweb3.hsc.usf.edu/wp-content/uploads/2020/09/Grichnik-James-headshot-200x200-1.jpg'/>
+                            </div>
+                            <div className="navbar__username">
+                                <h4>Tanmoy Roy</h4>
+                            </div>
+                            <div className="navbar__username">
+                            <button className="btn btn-default"><Link to="/">Log out</Link></button>
+                            </div>
+                        </>
+                        :
+                        <>
+                            <button className="btn btn-primary"><Link to="/">Log in</Link></button>
+                            <button className="btn btn-default"><Link to="/">Sign up</Link></button>
+                        </>}
                     </section>
                 </div>
             </div>
@@ -24,4 +39,11 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps=state=>{
+    return{
+        loginSuccess: state.user.loginSuccess
+    }
+}
+
+
+export default connect(mapStateToProps)(Navbar)
