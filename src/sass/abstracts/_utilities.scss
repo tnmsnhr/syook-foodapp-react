@@ -1,0 +1,104 @@
+.margin-bottom-xl {margin-bottom: 6rem;}
+.margin-bottom-lg {margin-bottom: 1.5rem;}
+.margin-bottom-md {margin-bottom: 0.8rem;}
+.margin-bottom-sm {margin-bottom: 0.5rem;}
+
+.margin-top-xl {margin-top: 6rem;}
+.margin-top-lg {margin-top: 1.5rem;}
+.margin-top-md {margin-top: 0.8rem;}
+.margin-top-sm {margin-top: 0.5rem;}
+
+.heading-lg { 
+    font-weight: 600;
+    font-size: 25px;
+}
+.heading-md {}
+.heading-sm {}
+
+.para-lg {}
+.para-md {}
+.para-sm {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.btn {
+    padding: 1rem 2.3rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:not(:last-child){
+        margin-right: 1.5rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.btn-primary {
+    background-color: $color-primary;
+    
+    a {
+        color: $color-white;
+    }
+}
+
+.btn-default {
+    background-color: $color-primary-light;
+
+    a {
+        color: $color-primary;
+    }
+}
+
+.btn-white {
+    background-color: $color-white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: 1px solid $color-border;
+    color: $color-primary;
+
+    a {
+        color: $color-primary;
+    }
+}
+
+.btn-full {
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.form__group {
+    margin: 10px 0;
+
+    textarea{
+        resize: vertical;
+        max-height: 400px;
+        min-height: 150px;
+    }
+
+    input, textarea {
+        width: 100%;
+        display: block;
+        padding: 13px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid $color-border;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+
+        &::placeholder {
+            color: $color-grey-dark;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+        }
+    }
+}

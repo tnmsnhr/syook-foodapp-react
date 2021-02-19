@@ -1,0 +1,40 @@
+.navbar__container {
+    border-bottom: 1px solid $color-border;
+    .navbar__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        .navbar__left {
+
+            .navbar__menu-items {
+                display: flex;
+
+                .navbar__menu-item {
+                    list-style-type: none;
+
+                    &:not(:last-child){
+                        margin-right: 3rem;
+                    }
+
+                    a {
+                        font-size: 1.1rem;
+                        font-weight: 500;
+                        text-decoration: none;
+                    }
+                }
+
+                
+            }
+        }
+
+        .navbar__right {
+
+        }
+    }
+}
+
+.active__nav {
+    font-weight: bold;
+    color: $color-primary;     
+}

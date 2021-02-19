@@ -1,0 +1,82 @@
+.loginform__container {
+    width: 100%;
+    .loginform__upperrow {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid $color-grey-dark;
+
+        .loginform__brand {
+            font-weight: 900;
+            font-size: 1.7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                color: $color-primary;
+            }
+
+            img {
+                width: 12%;
+                margin-right: 10px;
+            }
+        }
+
+        .loginform__heading {
+            font-size: 1.5rem;
+        }
+
+        .google-signin{
+            position: relative;
+            text-align: center;
+            width: 100%;
+            &__button {
+
+                img {
+                    position: absolute;
+                    width: 07%;
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                h3 {
+                }
+            }
+        }
+    }
+
+    .loginform__bottomrow {
+        .form__input--group {
+
+        }
+
+        .loginform__action--btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .login__btn {
+                button {
+                    color: $color-white;
+                }
+            }
+            
+            .forgot__password--container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: $color-grey-dark;
+
+                .forgot__password {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    
+}

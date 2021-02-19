@@ -1,0 +1,14 @@
+@import './abstracts/variables';
+@import './abstracts/mixins';
+
+@import './base/base';
+
+@import './abstracts/utilities';
+@import './layout/layout';
+
+@import '../components/LoginForm/loginform';
+@import '../components/AuthPAge/authPage';
+@import '../components/Navbar/navbar';
+@import '../components/VotePage/votePage';
+@import '../components/FoodCard/foodCard';
+@import '../components/ProfilePage/profilePage';

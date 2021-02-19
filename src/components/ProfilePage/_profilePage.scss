@@ -1,0 +1,19 @@
+.profile-page__container {
+
+    .profile__tab {
+        
+    }
+
+    .profile__heading {
+        display: flex ;
+        justify-content: center;
+        align-items: center;
+
+        .heading-bar {
+            flex: 1;
+            background-color: $color-border;
+            height: 1px;
+            margin-left: 1rem;
+        }
+    }
+}
